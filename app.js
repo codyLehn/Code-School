@@ -1,23 +1,25 @@
 var app = new Vue({
   el: '#app',
   data: {
-    prompt: 'Ask a Question',
+    prompt: 'Ask a question',
     message: '',
-    mesageBank: [
+    messageBank: [
       'Yes',
       'No',
       'Maybe',
-      'Ask again tomorrow',
+      'Ask Again Tomorrow',
       'Probably',
       'Probably Not',
     ],
+
     question: '',
   },
   methods: {
     askQuestion: function () {
-      if (!this.isValidQuestion) {
+      if (!this.isValidQuestion()) {
         return;
       }
+
       let nextIndex = Math.floor(Math.random() * this.messageBank.length);
       let nextResponse = this.messageBank[nextIndex];
       this.message = nextResponse;

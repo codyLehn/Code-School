@@ -5,23 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <title>Magic 8 Ball</title>
   </head>
   <body>
     <div id="app" v-cloak>
       <div id="eightBall">
-        <div id="mesageArea">
-          <div id="message">{{message}}</div>
+        <div id="messageArea">
+          <div id="message">{{ message }}</div>
         </div>
       </div>
       <br /><br />
       <div id="questionArea">
-        {{prompt}} <br />
+        {{ prompt }} <br />
         <input v-model="question" v-on:keydown.enter="askQuestion()" /> <br />
-        <button v-show="isValidQuestion()" v-on:click="askQuestions()">
+        <button v-show="isValidQuestion()" v-on:click="askQuestion()">
           Ask Question
         </button>
-        <div v-show="question.length > 0 && !isValidQuestion()"></div>
+        <div v-show="question.length > 0 && !isValidQuestion()">
+          Questions end in ?
+        </div>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
